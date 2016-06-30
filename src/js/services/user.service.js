@@ -1,19 +1,17 @@
 export default class User {
 
-	constructor( AppConstans, $http ){
+	constructor( AppConstants, $http ){
 		'ngInject';
 
-		this._AppConstans = AppConstans;
+		this._AppConstants = AppConstants;
 		this._$http = $http;
-
-
 		this.current = null;
 	}
 
 	attemptAuth( type, credentials ) {
 		let route = ( type === 'login' ) ?  '/login' : '';
 		return this._$http({
-			url: this._AppConstans.api + 'users' + route,
+			url: this._AppConstants.api + 'users' + route,
 			method: 'POST',
 			data: {
 				user: credentials
