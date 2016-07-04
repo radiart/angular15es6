@@ -6,7 +6,7 @@ export default class User {
 		this._JWT = JWT;
 		this._AppConstants = AppConstants;
 		this._$http = $http;
-		this._state = $state;
+		this._$state = $state;
 		this._$q = $q;
 
 		this.current = null;
@@ -27,6 +27,19 @@ export default class User {
 				return res;
 			}
 		)
+	}
+
+	update( fields ) {
+		return this._$http({
+			url: this._AppConstants.api + '/user',
+			method: 'PUT',
+			data: { user: fields }
+		}).then(
+			(res) => {
+				this.current = res.data.user;
+				return res.data.user;
+			}
+		);
 	}
 
 	logout(){
