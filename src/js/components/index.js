@@ -13,5 +13,8 @@ componentsModule.component('followBtn', FollowBtn);
 import ListErrors from './list-errors.component';
 componentsModule.component('listErrors', ListErrors);
 
+import ArticleMeta from './article-helpers/article-meta.component';
+componentsModule.component('articleMeta', ArticleMeta);
+
 
 export default componentsModule;
