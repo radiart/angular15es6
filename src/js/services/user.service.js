@@ -65,11 +65,14 @@ export default class User {
 		return deferred.promise;
 	}
 
+	// This method will be used by UI-Router resolves
 	ensureAuthIs( bool ){
 		let deferred = this._$q.defer();
 
 		this.verifyAuth()
 			.then((authValid) => {
+
+				// if it's the opposite, redirect home
 				if ( authValid !== bool ) {
 					this._$state.go('app.home');
 					deferred.resolve( false );
