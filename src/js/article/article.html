@@ -4,7 +4,7 @@
   <div class="banner">
     <div class="container">
 
-      <h1>Example article title</h1>
+      <h1 ng-bind=" $ctrl.article.title "></h1>
 
       <div class="article-meta">
         <!-- Show author info + favorite & follow buttons -->
@@ -41,16 +41,12 @@
     <div class="row article-content">
       <div class="col-xs-12">
 
-        <div>
-          <p>This is the content of our article.</p>
-        </div>
+        <div ng-bind-html=" $ctrl.article.body "></div>
 
         <ul class="tag-list">
-          <li class="tag-default tag-pill tag-outline">
-            Tag One
-          </li>
-          <li class="tag-default tag-pill tag-outline">
-            Tag Two
+          <li class="tag-default tag-pill tag-outline"
+          ng-repeat=" tag in ::$ctrl.article.tagList">
+            {{ tag }}
           </li>
         </ul>
 
