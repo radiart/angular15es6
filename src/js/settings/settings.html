@@ -14,14 +14,14 @@
                             <input class="form-control"
                                    type="text"
                                    placeholder="URL of profile picture"
-                                   ng-model="$ctrl.formData.image" />
+                                   ng-model=" $ctrl.formData.image " />
                         </fieldset>
 
                         <fieldset class="form-group">
                             <input class="form-control form-control-lg"
                                    type="text"
                                    placeholder="Username"
-                                   ng-model="$ctrl.formData.username" />
+                                   ng-model=" $ctrl.formData.username " />
                         </fieldset>
 
                         <fieldset class="form-group">
@@ -36,14 +36,14 @@
                             <input class="form-control form-control-lg"
                                    type="email"
                                    placeholder="Email"
-                                   ng-model="$ctrl.formData.email" />
+                                   ng-model=" $ctrl.formData.email " />
                         </fieldset>
 
                         <fieldset class="form-group">
                             <input class="form-control form-control-lg"
                                    type="password"
                                    placeholder="New Password"
-                                   ng-model="$ctrl.formData.password" />
+                                   ng-model=" $ctrl.formData.password " />
                         </fieldset>
 
                         <button class="btn btn-lg btn-primary pull-xs-right"
@@ -57,7 +57,7 @@
                 <!-- Line break for logout button -->
                 <hr />
 
-                <button class="btn btn-outline-danger">
+                <button class="btn btn-outline-danger" ng-click=" $strl.logout() ">
                     Or click here to logout.
                 </button>
 
