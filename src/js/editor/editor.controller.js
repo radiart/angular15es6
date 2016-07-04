@@ -1,17 +1,22 @@
 class EditorCtrl {
 
-	constructor( Article, $state ) {
+	constructor( Article, article, $state ) {
 		'ngInject';
 
 		this._Article = Article;
 		this._$state = $state;
 
-		this.article = {
-			title: '',
-			description: '',
-			body: '',
-			tagList: []
+		if( !article ){
+			this.article = {
+				title: '',
+				description: '',
+				body: '',
+				tagList: []
+			}
+		} else {
+			this.article = article;
 		}
+
 	}
 
 	submit(){
