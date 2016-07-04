@@ -12,7 +12,7 @@ export default class JWT {
 	}
 
 	get() {
-		this._$window.localStorage[this._AppConstants.jwtKey];
+		return this._$window.localStorage[this._AppConstants.jwtKey];
 	}
 
 	destroy(){

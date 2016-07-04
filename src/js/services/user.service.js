@@ -1,12 +1,13 @@
 export default class User {
 
-	constructor( JWT, AppConstants, $http, $state ){
+	constructor( JWT, AppConstants, $http, $state, $q ){
 		'ngInject';
 
 		this._JWT = JWT;
 		this._AppConstants = AppConstants;
 		this._$http = $http;
 		this._state = $state;
+		this._$q = $q;
 
 		this.current = null;
 	}
@@ -32,5 +33,39 @@ export default class User {
 		this.current = null;
 		this._JWT.destroy();
 		this._$state.go( this._$state.$current, null, { reload: true })
+	}
+
+	verifyAuth() {
+		let deferred = this._$q.defer();
+
+		// chech for JWT Token
+		if( !this._JWT.get() ) {
+			deferred.resolve( false );
+			return deferred.promise;
+		}
+
+		if( this.current ) {
+			deferred.resolve( true );
+		} else {
+			this._$http({
+				url: this._AppConstants.api + '/user',
+				method: 'GET',
+				headers: {
+					Authorization: 'Token ' + this._JWT.get()
+				}
+			}).then(
+				(res) => {
+					this.current = res.data.user;
+					deferred.resolve( true );
+				},
+				(err) => {
+					this._JWT.destroy();
+					deferred.resolve(false);
+				}
+			)
+		}
+
+		return deferred.promise;
+
 	}
 }
