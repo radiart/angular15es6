@@ -15,4 +15,24 @@ export default class Profile {
 			(res) => res.data.profile
 		);
 	}
+
+	// Follow
+	follow( username ){
+		return this._$http({
+			url: this._AppConstants.api + '/profiles/' + username + '/follow',
+			method: 'POST'
+		}).then(
+			(res) => res.data
+		);
+	}
+
+	// Unfollow
+	unfollow( username ){
+		return this._$http({
+			url: this._AppConstants.api + '/profiles/' + username + '/follow',
+			method: 'DELETE'
+		}).then(
+			(res) => res.data
+		);
+	}
 }
