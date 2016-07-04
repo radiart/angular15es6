@@ -1,4 +1,5 @@
 class AuthCtrl {
+	
 	constructor( User, $state ) {
 		'ngInject';
 

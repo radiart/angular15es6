@@ -19,6 +19,7 @@ function AuthConfig( $stateProvider, $httpProvider ) {
 			url: '/register',
 			controller: 'AuthCtrl as $ctrl',
 			templateUrl: 'auth/auth.html',
+			title: 'Sign up',
 			resolve: {
 				auth: function( User) {
 					User.ensureAuthIs(false);
