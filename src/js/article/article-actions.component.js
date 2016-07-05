@@ -1,7 +1,13 @@
 class ArticleActionsCtrl {
 
-	constructor() {
+	constructor( User ) {
 		'ngInject';
+
+		if( User.current) {
+			this.canModify = ( User.current.username === this.article.author.username );
+		} else {
+			this.canModify = false;
+		}
 	}
 }
 
