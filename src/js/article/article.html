@@ -76,21 +76,21 @@
           <a ui-sref="app.login">Sign in</a> or <a ui-sref="app.register">Sign up</a> to add comments on this article.
         </div>
 
-        <div class="card">
+        <div class="card" ng-repeat=" item in $ctrl.comments ">
           <div class="card-block">
-            <p class="card-text">This is an example comment.</p>
+            <p class="card-text" ng-bind=" ::item.body "></p>
           </div>
           <div class="card-footer">
             <a class="comment-author" href="">
-              <img class="comment-author-img" />
+              <img ng-src="{{ ::item.author.image}}" class="comment-author-img" />
             </a>
             &nbsp;
-            <a class="comment-author" href="">
-              BradGreen
+            <a class="comment-author"
+               ui-sref="app.profile({ username: item.author.username })"
+               ng-bind=" ::item.author.username ">
             </a>
-            <span class="date-posted">
-              Jan 20, 2016
-            </span>
+            <span class="date-posted"
+            ng-bind=" ::item.createdAt | date: 'longDate' "></span>
           </div>
         </div>
 

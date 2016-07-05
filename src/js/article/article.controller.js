@@ -14,9 +14,13 @@ class ArticleCtrl {
     // Update the title of this page
     $rootScope.setPageTitle( this.article.title );
 
-    this.article.body = $sce.trustAsHtml( marked( this.article.body, {
-      sanitize: true
-    } ) );
+    // Transform the markdown into HTML
+    this.article.body = $sce.trustAsHtml( marked( this.article.body, { sanitize: true }));
+
+    // Get comments for this article
+    Comment.getAll( this.article.slug ).then(
+      (comments) => this.comments = comments
+    );
 
     // Initialize blank comment form
     this.resetCommentForm();
@@ -33,9 +37,9 @@ class ArticleCtrl {
   // Add a comment to an article
   addComment() {
     this.commentForm.isSubmiting = true;
-    this._Comment.add( this.article.slig, this.commentForm.body ).then(
+    this._Comment.add( this.article.slug, this.commentForm.body ).then(
         (comment) => {
-          console.log(comment);
+          this.comments.unshift(comment);
           this.resetCommentForm();
         },
         (err) => {
