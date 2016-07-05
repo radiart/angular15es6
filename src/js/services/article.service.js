@@ -50,4 +50,12 @@ export default class Article {
 		return this._$http(request)
 			.then( (res) => res.data.article );
 	}
+
+	// Delete an article
+	destroy( slug ) {
+		return this._$http({
+			url: this._AppConstants.api + '/articles/' +slug,
+			method: 'DELETE'
+		})
+	}
 }

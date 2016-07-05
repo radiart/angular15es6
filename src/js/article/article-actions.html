@@ -5,16 +5,14 @@
             <i class="ion-edit"></i>   Edit
         </button>
         &nbsp;
-        <button class="btn btn-sm btn-outline-danger">
+        <button class="btn btn-sm btn-outline-danger"
+                ng-class=" { disabled: $ctrl.isDeleting } "
+                ng-click=" $ctrl.deleteArticle() ">
             <i class="ion-trash-a"></i> Delete
         </button>
     </span>
     <span ng-hide=" $ctrl.canModify ">
-        <button class="btn btn-sm btn-outline-secondary">
-            <i class="ion-plus-round"></i>
-            &nbsp;
-            Follow Brad Green
-        </button>
+        <follow-btn user=" $ctrl.article.author "></follow-btn>
         &nbsp;
         <button class="btn btn-sm btn-outline-primary">
             <i class="ion-heart"></i>
