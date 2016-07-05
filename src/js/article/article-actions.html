@@ -4,7 +4,6 @@
         ui-sref="app.editor({ slug: $ctrl.article.slug })">
             <i class="ion-edit"></i>   Edit
         </button>
-        &nbsp;
         <button class="btn btn-sm btn-outline-danger"
                 ng-class=" { disabled: $ctrl.isDeleting } "
                 ng-click=" $ctrl.deleteArticle() ">
@@ -13,11 +12,9 @@
     </span>
     <span ng-hide=" $ctrl.canModify ">
         <follow-btn user=" $ctrl.article.author "></follow-btn>
-        &nbsp;
-        <button class="btn btn-sm btn-outline-primary">
-            <i class="ion-heart"></i>
-            &nbsp;
-            Favorite Article <span class="counter">(29)</span>
-        </button>
+        <favorite-btn article=" $ctrl.article ">
+            {{ $ctrl.article.favorited ? 'Unfavorite' : 'Favorite' }}
+            <span class="counter">( {{ $ctrl.article.favoritesCount }} )</span>
+        </favorite-btn>
     </span>
 </article-meta>
