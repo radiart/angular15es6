@@ -24,4 +24,11 @@ export default class Comment {
 		}).then( (res)=> res.data.comment );
 	}
 
+	destroy( slug, commentId ){
+		return this._$http({
+			url: `${ this._AppConstants.api}/articles/${slug}/comments/${commentId}`,
+			method: 'DELETE'
+		});
+	}
+
 }

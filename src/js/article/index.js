@@ -17,4 +17,7 @@ articleModule.controller('ArticleCtrl', ArticleCtrl);
 import ArticleActions from './article-actions.component';
 articleModule.component('articleActions', ArticleActions);
 
+import Comment from './comment.component';
+articleModule.component('comment', Comment);
+
 export default articleModule;

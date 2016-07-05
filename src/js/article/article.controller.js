@@ -49,6 +49,14 @@ class ArticleCtrl {
     )
   }
 
+  deleteComment( commentId, index ){
+      this._Comment.destroy( this.article.slug, commentId).then(
+          (success) => {
+              this.comments.splice( index, 1 );
+          }
+      )
+  }
+
 }
 
 
