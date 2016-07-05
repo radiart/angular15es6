@@ -15,4 +15,7 @@ servicesModule.service('Article', ArticleService);
 import JwtService from './jwt.service';
 servicesModule.service('JWT', JwtService);
 
+import CommentService from './comment.service';
+servicesModule.service('commentService', CommentService);
+
 export default servicesModule;
