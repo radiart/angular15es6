@@ -12,6 +12,6 @@ Angular 1.5 application with ES6 and Components Tutorial
 
 Make sure you have gulp installed globally (`npm install -g gulp`)
 
-** API: **
+**API:**
 - [https://github.com/GoThinkster/productionready/blob/master/instructors/guides/backend.md](https://github.com/GoThinkster/productionready/blob/master/instructors/guides/backend.md)
 - [https://github.com/GoThinkster/productionready/blob/master/API.md](https://github.com/GoThinkster/productionready/blob/master/API.md)
