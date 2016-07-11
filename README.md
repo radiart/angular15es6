@@ -1,4 +1,5 @@
 Angular 1.5 application with ES6 and Components Tutorial
+---
 
 Article: [thinkster.io/angularjs-es6-tutorial](https://thinkster.io/angularjs-es6-tutorial)
 
